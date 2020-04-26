@@ -31,4 +31,6 @@ const PaymentIntentService = {
       return 1400;
     }
 
-}
+};
+
+module.exports = PaymentIntentService;

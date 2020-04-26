@@ -18,4 +18,6 @@ const PaymentIntentController = {
           clientSecret: paymentIntent.client_secret
         });
       },
-}
+};
+
+module.exports = PaymentIntentController;
