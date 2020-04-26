@@ -16,7 +16,7 @@ const PaymentIntentService = {
     createPaymentIntent: async (items) => {
         // Create a PaymentIntent with the order amount and currency
         const paymentIntent = await stripe.paymentIntents.create({
-          amount: calculateOrderAmount(items),
+          amount: PaymentIntentService.calculateOrderAmount(items),
           currency: "usd"
         });
 

@@ -1,4 +1,7 @@
 
+
+const StripeWebhookHandler = {
+
 handleEvents : async (req, res) => {
     let data;
     let eventType;
@@ -33,4 +36,7 @@ handleEvents : async (req, res) => {
     }
   
     res.sendStatus(200);
-  });
+  }
+}
+
+module.exports = StripeWebhookHandler;
