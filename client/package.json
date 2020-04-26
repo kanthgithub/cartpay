@@ -1,0 +1,16 @@
+{
+    "name": "cartpay-client",
+    "version": "1.0.0",
+    "description": "Client Application to handle checkout products and payment using Stripe API",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "author": "lakshmi kanth",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.1",
+      "stripe": "^7.1.0"
+    }
+  }
+  
