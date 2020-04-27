@@ -13,11 +13,11 @@ const PaymentIntentService = {
      * @param response
      * @returns {PaymentIntentResponse}
      */
-    createPaymentIntent: async (items) => {
+    createPaymentIntent: async (cart) => {
         // Create a PaymentIntent with the order amount and currency
         const paymentIntent = await stripe.paymentIntents.create({
-          amount: PaymentIntentService.calculateOrderAmount(items),
-          currency: "usd"
+          amount: PaymentIntentService.calculateOrderAmount(cart.items),
+          currency: cart.currency
         });
 
         return paymentIntent;
@@ -25,12 +25,9 @@ const PaymentIntentService = {
 
 
     calculateOrderAmount : items => {
-      // Replace this constant with a calculation of the order's amount
-      // Calculate the order total on the server to prevent
-      // people from directly manipulating the amount on the client
-      return 1400;
+      console.log(JSON.stringify(items));
+      return items.reduce((a, b) => a + (b.price || 0), 0);
     }
-
 };
 
 module.exports = PaymentIntentService;

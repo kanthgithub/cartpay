@@ -10,9 +10,9 @@ const PaymentIntentController = {
      * @returns {Promise<PaymentIntentResponse>}
      */
     createPaymentIntent: async (request, response) => {
-        const { items } = request.body;
+        const cart = request.body;
         // Create a PaymentIntent with the order amount and currency
-        const paymentIntent = await paymentIntentService.createPaymentIntent(items);
+        const paymentIntent = await paymentIntentService.createPaymentIntent(cart);
         console.log('paymentIntent: '+JSON.stringify(paymentIntent));
         /*response.send({
           clientSecret: paymentIntent.client_secret
