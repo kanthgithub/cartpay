@@ -22,8 +22,9 @@ const PaymentIntentService = {
 
 
     calculateOrderAmount : items => {
-      console.log(JSON.stringify(items));
-      return items.reduce((a, b) => a + (b.price || 0), 0);
+      return items.reduce((a, item) => {
+        return a + (item.price || 0) * (item.quantity || 0);
+      }, 0);      
     }
 };
 
