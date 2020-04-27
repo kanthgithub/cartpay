@@ -1,8 +1,5 @@
 const responseDataUtil = require('../util/ResponseDataUtil');
 
-// This is a sample test API key. Sign in to see examples pre-filled with your key.
-//const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
-// This is a sample test API key. Sign in to see examples pre-filled with your key.
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const PaymentIntentService = {
