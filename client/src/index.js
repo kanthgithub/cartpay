@@ -31,13 +31,14 @@ class App extends Component {
     this.checkProduct = this.checkProduct.bind(this);
     this.updateQuantity = this.updateQuantity.bind(this);
     this.handleRemoveProduct = this.handleRemoveProduct.bind(this);
+    this.checkout = this.checkout.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
   // Fetch Initial Set of Products from external API
   getProducts() {
     let url =
-      "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json";
+      "http://localhost:4244/api/v1/products";
     axios.get(url).then(response => {
       this.setState({
         products: response.data
@@ -138,6 +139,13 @@ class App extends Component {
       quantity: qty
     });
   }
+
+//checkout cart
+checkout(){
+  console.log("cart items: "+this.state.cart);
+  alert("cart items: "+this.state.cart);
+}
+
   // Open Modal
   openModal(product) {
     this.setState({

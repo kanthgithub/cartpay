@@ -4,14 +4,14 @@
   "description": "Backend Application to handle checkout products and payment using Stripe API",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "lakshmi kanth",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "stripe": "^7.1.0",
-    "cors": "^2.8.5",
+    "cors": "2.8.5",
     "dotenv": "^8.0.0"
   }
 }

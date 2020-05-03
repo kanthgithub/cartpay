@@ -22,7 +22,7 @@ class Header extends Component {
   }
   handleCheckout(e){
     e.preventDefault();
-    alert(this.props.total+'-'+this.props.totalItems);
+    alert(JSON.stringify(this.props.cartItems)+'-'+this.props.total+'-'+this.props.totalItems);
   }
 
   handleSubmit(e) {
