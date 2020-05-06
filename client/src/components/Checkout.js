@@ -8,7 +8,7 @@ class Checkout extends Component {
     this.state = {
       showCart: false,
       cart: this.props.cartItems,
-      mobileSearch: false
+      mobileSearch: false,
     };
   }
 

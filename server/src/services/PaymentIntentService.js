@@ -16,7 +16,7 @@ const PaymentIntentService = {
           amount: PaymentIntentService.calculateOrderAmount(cart.items),
           currency: cart.currency
         });
-        console.log(JSON.stringify(paymentIntent));
+        console.log("paymentIntent response =",paymentIntent);
         return paymentIntent;
       },
 

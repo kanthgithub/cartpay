@@ -6,6 +6,9 @@ import Checkout from "./Checkout"
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import { findDOMNode } from "react-dom";
 import { loadStripe } from '@stripe/stripe-js';
+import axios from 'axios';
+
+//returnPayload 
 
 class Header extends Component {
   constructor(props) {
@@ -22,11 +25,11 @@ class Header extends Component {
       showCart: !this.state.showCart
     });
   }
-  handleCheckout(e){
-    e.preventDefault();
-    alert(JSON.stringify(this.props.cartItems)+'-'+this.props.total+'-'+this.props.totalItems);
-    
-  }
+  // handleCheckout(e){
+  //   e.preventDefault();
+  //   alert(JSON.stringify(this.props.cartItems)+'-'+this.props.total+'-'+this.props.totalItems);
+
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,7 +46,7 @@ class Header extends Component {
       {
         mobileSearch: false
       },
-      function() {
+      function () {
         this.refs.searchBox.value = "";
         this.props.handleMobileSearch();
       }
@@ -76,8 +79,8 @@ class Header extends Component {
     );
   }
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
+  // Make sure to call `loadStripe` outside of a component’s render to avoid
+  // recreating the `Stripe` object on every render.
   stripePromise = loadStripe('pk_test_KA5vtIPIYAKz0udyqvKcscJ000tu4LVzAM');
 
   handleClick = async (event) => {
@@ -97,37 +100,54 @@ class Header extends Component {
   };
 
 
- createPaymentIntent = async () => {
+  createPaymentIntent = async () => {
 
-  console.log(JSON.stringify(this.props.cartItems));
-  alert(JSON.stringify(this.props.cartItems));
+    console.log("Cart Items: ", this.props.cartItems);
 
-  const response = await fetch('http://localhost:4244/api/v1/create-payment-intent', {
-      method: "post",
+    const data = {items: this.props.cartItems, currency: 'USD'}
+
+    const response = await axios.post('http://localhost:4244/api/v1/create-payment-intent',data,{
+      mode: 'no-cors',
       headers: {
-          "Content-type": "application/json",
-          "Accept": "application/json",
-          "Accept-Charset": "utf-8"
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      body: `{"items": ${JSON.stringify(this.props.cartItems)}`
-  });
+      withCredentials: false,
+      crossdomain: true,
+    })
 
-  const messageData = await response.json();
+    // const response = await fetch('http://localhost:4244/api/v1/create-payment-intent', {
+    //   method: "post",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //     "Accept": "application/json",
+    //     "Accept-Charset": "utf-8"
+    //   },
+    //   body: `{"items": ${JSON.stringify(this.props.cartItems)}`
+    // });
 
-  // the API frequently returns 201
-  if ((response.status !== 200) && (response.status !== 201)) {
-      console.error(`Invalid response status ${ response.status }.`);
+    const messageData = response;
+
+    // the API frequently returns 201
+    if ((response.status !== 200) && (response.status !== 201)) {
+      console.error(`Invalid response status ${response.status}.`);
       throw messageData;
+    }
+
+    return messageData;
   }
 
-  return messageData;
-}
 
-
-  handleCheckout =async (event) => {
-    console.log(this.createPaymentIntent());
-  };
   render() {
+    const handleCheckout = async (event) => {
+      const intent= await this.createPaymentIntent();
+      this.props.returnPayload({
+        amount: intent.data.amount,
+        currency: intent.data.currency,
+        clientSecret: intent.data.client_secret
+      })
+    };
+
     let cartItems;
     cartItems = this.state.cart.map(product => {
       return (
@@ -258,8 +278,8 @@ class Header extends Component {
               {this.props.totalItems ? (
                 <span className="cart-count">{this.props.totalItems}</span>
               ) : (
-                ""
-              )}
+                  ""
+                )}
             </a>
             <div
               className={
@@ -272,7 +292,7 @@ class Header extends Component {
                 <button
                   type="button"
                   className={this.state.cart.length > 0 ? " " : "disabled"}
-                  onClick={this.handleCheckout.bind(this)}
+                  onClick={handleCheckout}
                 >
                   PROCEED TO CHECKOUT
                 </button>

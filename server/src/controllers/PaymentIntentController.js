@@ -11,7 +11,7 @@ const PaymentIntentController = {
      */
     createPaymentIntent: async (request, response) => {
         const cart = request.body;
-        console.log('paymentIntent Request Body: '+JSON.stringify(cart));
+        console.log('paymentIntent Request Body: ',cart);
         // Create a PaymentIntent with the order amount and currency
         const paymentIntent = await paymentIntentService.createPaymentIntent(cart);
         console.log('paymentIntent: '+JSON.stringify(paymentIntent));
