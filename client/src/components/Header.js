@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import CartScrollBar from "./CartScrollBar";
 import Counter from "./Counter";
 import EmptyCart from "../empty-states/EmptyCart";
+import Checkout from "./Checkout"
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import { findDOMNode } from "react-dom";
+import { loadStripe } from '@stripe/stripe-js';
 
 class Header extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class Header extends Component {
   handleCheckout(e){
     e.preventDefault();
     alert(JSON.stringify(this.props.cartItems)+'-'+this.props.total+'-'+this.props.totalItems);
+    
   }
 
   handleSubmit(e) {
@@ -72,6 +75,58 @@ class Header extends Component {
       true
     );
   }
+
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+  stripePromise = loadStripe('pk_test_KA5vtIPIYAKz0udyqvKcscJ000tu4LVzAM');
+
+  handleClick = async (event) => {
+    // When the customer clicks on the button, redirect them to Checkout.
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      items: this.props.cartItems,
+      successUrl: 'https://example.com/success',
+      cancelUrl: 'https://example.com/cancel',
+    });
+
+    console.log('test');
+    alert('test');
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `error.message`.
+  };
+
+
+ createPaymentIntent = async () => {
+
+  console.log(JSON.stringify(this.props.cartItems));
+  alert(JSON.stringify(this.props.cartItems));
+
+  const response = await fetch('http://localhost:4244/api/v1/create-payment-intent', {
+      method: "post",
+      headers: {
+          "Content-type": "application/json",
+          "Accept": "application/json",
+          "Accept-Charset": "utf-8"
+      },
+      body: `{"items": ${JSON.stringify(this.props.cartItems)}`
+  });
+
+  const messageData = await response.json();
+
+  // the API frequently returns 201
+  if ((response.status !== 200) && (response.status !== 201)) {
+      console.error(`Invalid response status ${ response.status }.`);
+      throw messageData;
+  }
+
+  return messageData;
+}
+
+
+  handleCheckout =async (event) => {
+    console.log(this.createPaymentIntent());
+  };
   render() {
     let cartItems;
     cartItems = this.state.cart.map(product => {
@@ -224,7 +279,23 @@ class Header extends Component {
               </div>
             </div>
           </div>
+
+          <div className="card-payment" hidden>
+            <form id="payment-form">
+              <div id="card-element"></div>
+              <button id="submit">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">Pay</span>
+              </button>
+              <p id="card-errors" role="alert"></p>
+              <p class="result-message hidden">
+                Payment succeeded, see the result in your
+                <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+              </p>
+            </form>
+          </div>
         </div>
+
       </header>
     );
   }

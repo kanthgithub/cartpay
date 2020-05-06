@@ -16,12 +16,13 @@ const PaymentIntentService = {
           amount: PaymentIntentService.calculateOrderAmount(cart.items),
           currency: cart.currency
         });
-
+        console.log(JSON.stringify(paymentIntent));
         return paymentIntent;
       },
 
 
     calculateOrderAmount : items => {
+      console.log(`items for reduce: ${items}`)
       return items.reduce((a, item) => {
         return a + (item.price || 0) * (item.quantity || 0);
       }, 0);      

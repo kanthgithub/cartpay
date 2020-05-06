@@ -20,7 +20,8 @@
     "react": "^16.0.0",
     "react-custom-scrollbars": "^4.1.1",
     "react-dom": "^16.0.0",
-    "react-transition-group": "^1.1.2"
+    "react-transition-group": "^1.1.2",
+    "dotenv": "^8.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.6.2",
