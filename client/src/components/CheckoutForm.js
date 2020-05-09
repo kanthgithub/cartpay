@@ -103,7 +103,7 @@ export default function CheckoutForm(props) {
             minimumFractionDigits: 2
           })}{" "}
         </h1>
-        <h4>Pre-order the Pasha package</h4>
+        <h4>Pay Now to get the cart at your door-step by tomorrow!</h4>
 
         <div className="sr-combo-inputs">
           <div className="sr-combo-inputs-row">
