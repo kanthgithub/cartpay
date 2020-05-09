@@ -67,7 +67,7 @@ export default function CheckoutForm(props) {
   const renderSuccess = () => {
     return (
       <div className="sr-field-success message">
-        <h1>Your test payment succeeded</h1>
+        <h1>Payment Confirmed - Your package is on your way Home</h1>
         <p>View PaymentIntent response:</p>
         <pre className="sr-callout">
           <code>{JSON.stringify(metadata, null, 2)}</code>
