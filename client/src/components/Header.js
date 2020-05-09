@@ -195,7 +195,7 @@ class Header extends Component {
           <div className="brand">
             <img
               className="logo"
-              src="https://res.cloudinary.com/sivadass/image/upload/v1493547373/dummy-logo/Veggy.png"
+              src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050645/Veggy_xrmwdh.png"
               alt="Veggy Brand Logo"
             />
           </div>
@@ -207,7 +207,7 @@ class Header extends Component {
               onClick={this.handleMobileSearch.bind(this)}
             >
               <img
-                src="https://res.cloudinary.com/sivadass/image/upload/v1494756966/icons/search-green.png"
+                src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050645/search-green_vdczhr.png"
                 alt="search"
               />
             </a>
@@ -224,7 +224,7 @@ class Header extends Component {
                 onClick={this.handleSearchNav.bind(this)}
               >
                 <img
-                  src="https://res.cloudinary.com/sivadass/image/upload/v1494756030/icons/back.png"
+                  src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050646/back_m3t34q.png"
                   alt="back"
                 />
               </a>
@@ -272,7 +272,7 @@ class Header extends Component {
             >
               <img
                 className={this.props.cartBounce ? "tada" : " "}
-                src="https://res.cloudinary.com/sivadass/image/upload/v1493548928/icons/bag.png"
+                src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050646/bag_olavov.png"
                 alt="Cart"
               />
               {this.props.totalItems ? (

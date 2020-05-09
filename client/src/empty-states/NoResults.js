@@ -5,7 +5,7 @@ const NoResults = () => {
     <div className="products">
       <div className="no-results">
         <img
-          src="https://res.cloudinary.com/sivadass/image/upload/v1494699523/icons/bare-tree.png"
+          src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050645/bare-tree_phh1m6.png"
           alt="Empty Tree"
         />
         <h2>Sorry, no products matched your search!</h2>

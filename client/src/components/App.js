@@ -130,10 +130,7 @@ class App extends Component {
     // When the customer clicks on the button, redirect them to Checkout.
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
-      items: [
-        // Replace with the ID of your SKU
-        { sku: 'sku_123', quantity: 1 }
-      ],
+      items: this.state.cart,
       successUrl: 'https://example.com/success',
       cancelUrl: 'https://example.com/cancel',
     });
