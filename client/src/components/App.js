@@ -154,6 +154,7 @@ class App extends Component {
     for (var i = 0; i < cart.length; i++) {
       total += cart[i].price * parseInt(cart[i].quantity);
     }
+    total = Math.round(total * 1000)/1000;
     this.setState({
       totalAmount: total
     });

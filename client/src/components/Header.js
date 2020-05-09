@@ -104,7 +104,7 @@ class Header extends Component {
 
     console.log("Cart Items: ", this.props.cartItems);
 
-    const data = {items: this.props.cartItems, currency: 'USD'}
+    const data = {items: this.props.cartItems, currency: 'SGD'}
 
     const response = await axios.post('http://localhost:4244/api/v1/create-payment-intent',data,{
       mode: 'no-cors',

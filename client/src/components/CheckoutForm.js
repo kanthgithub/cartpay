@@ -99,7 +99,7 @@ export default function CheckoutForm(props) {
       <form onSubmit={handleSubmit}>
         <h1>
           {currency.toLocaleUpperCase()}{" "}
-          {amount.toLocaleString(navigator.language, {
+          {(amount/100).toLocaleString(navigator.language, {
             minimumFractionDigits: 2
           })}{" "}
         </h1>

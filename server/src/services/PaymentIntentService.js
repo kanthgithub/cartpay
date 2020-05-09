@@ -12,8 +12,11 @@ const PaymentIntentService = {
      */
     createPaymentIntent: async (cart) => {
         // Create a PaymentIntent with the order amount and currency
+        let totalAmount = PaymentIntentService.calculateOrderAmount(cart.items).toFixed(2);
+        let totalAmountRounded = Math.round((totalAmount) * 100) ;
+        console.log(`totalAmountRounded: ${totalAmountRounded}`);
         const paymentIntent = await stripe.paymentIntents.create({
-          amount: PaymentIntentService.calculateOrderAmount(cart.items),
+          amount: totalAmountRounded,
           currency: cart.currency
         });
         console.log("paymentIntent response =",paymentIntent);

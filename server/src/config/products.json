@@ -2,91 +2,91 @@
     {
       "id": 1,
       "name": "Brocolli - 1 Kg",
-      "price": 120,
+      "price": 4.32,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538262/broccoli_raexjl.jpg",
       "category": "vegetables"
     },
     {
       "id": 2,
       "name": "Cauliflower - 1 Kg",
-      "price": 60,
+      "price": 1.12,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538276/cauliflower_em4smo.jpg",
       "category": "vegetables"
     },
     {
       "id": 3,
       "name": "Cucumber - 1 Kg",
-      "price": 48,
+      "price": 3.2,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538289/cucumber_a1dyjl.jpg",
       "category": "vegetables"
     },
     {
       "id": 4,
       "name": "Beetroot - 1 Kg",
-      "price": 32,
+      "price": 6.5,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538300/beetroot_iuvht7.jpg",
       "category": "vegetables"
     },
     {
       "id": 5,
       "name": "Carrot - 1 Kg",
-      "price": 56,
+      "price": 1.43,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538309/carrots_rcybxg.jpg",
       "category": "vegetables"
     },
     {
       "id": 6,
       "name": "Tomato - 1 Kg",
-      "price": 16,
+      "price": 2.98,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538319/tomato_upzxmp.jpg",
       "category": "vegetables"
     },
     {
       "id": 7,
       "name": "Beans - 1 Kg",
-      "price": 82,
+      "price": 4.32,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538326/beans_jtd6xo.jpg",
       "category": "vegetables"
     },
     {
       "id": 8,
-      "name": "Brinjal - 1 Kg",
-      "price": 35,
+      "name": "Eggplant - 1 Kg",
+      "price": 1.09,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538345/brinjal_uvjuie.jpg",
       "category": "vegetables"
     },
     {
       "id": 9,
       "name": "Capsicum",
-      "price": 60,
+      "price": 4.00,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538355/capsicum_bb1brz.jpg",
       "category": "vegetables"
     },
     {
       "id": 10,
       "name": "Mushroom - 1 Kg",
-      "price": 75,
+      "price": 3.54,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538385/button-mushroom_b6vsdh.jpg",
       "category": "vegetables"
     },
     {
       "id": 11,
       "name": "Potato - 1 Kg",
-      "price": 22,
+      "price": 4.32,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538402/potato_l3bt0p.jpg",
       "category": "vegetables"
     },
     {
       "id": 12,
       "name": "Pumpkin - 1 Kg",
-      "price": 48,
+      "price": 7.65,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538421/pumpkin_nge7fk.jpg",
       "category": "vegetables"
     },
     {
       "id": 13,
       "name": "Corn - 1 Kg",
-      "price": 75,
+      "price": 4.44,
       "image": "https://res.cloudinary.com/lakshmikanth/image/upload/v1588538442/corn_dula8v.jpg",
       "category": "vegetables"
     }
