@@ -15,8 +15,7 @@ class Header extends Component {
     super(props);
     this.state = {
       showCart: false,
-      cart: this.props.cartItems,
-      mobileSearch: false
+      cart: this.props.cartItems
     };
   }
   handleCart(e) {
@@ -34,24 +33,7 @@ class Header extends Component {
   handleSubmit(e) {
     e.preventDefault();
   }
-  handleMobileSearch(e) {
-    e.preventDefault();
-    this.setState({
-      mobileSearch: true
-    });
-  }
-  handleSearchNav(e) {
-    e.preventDefault();
-    this.setState(
-      {
-        mobileSearch: false
-      },
-      function () {
-        this.refs.searchBox.value = "";
-        this.props.handleMobileSearch();
-      }
-    );
-  }
+ 
   handleClickOutside(event) {
     const cartNode = findDOMNode(this.refs.cartPreview);
     const buttonNode = findDOMNode(this.refs.cartButton);
@@ -199,50 +181,6 @@ class Header extends Component {
               alt="Veggy Brand Logo"
             />
           </div>
-
-          <div className="search">
-            <a
-              className="mobile-search"
-              href="#"
-              onClick={this.handleMobileSearch.bind(this)}
-            >
-              <img
-                src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050645/search-green_vdczhr.png"
-                alt="search"
-              />
-            </a>
-            <form
-              action="#"
-              method="get"
-              className={
-                this.state.mobileSearch ? "search-form active" : "search-form"
-              }
-            >
-              <a
-                className="back-button"
-                href="#"
-                onClick={this.handleSearchNav.bind(this)}
-              >
-                <img
-                  src="https://res.cloudinary.com/lakshmikanth/image/upload/v1589050646/back_m3t34q.png"
-                  alt="back"
-                />
-              </a>
-              <input
-                type="search"
-                ref="searchBox"
-                placeholder="Search for Vegetables and Fruits"
-                className="search-keyword"
-                onChange={this.props.handleSearch}
-              />
-              <button
-                className="search-button"
-                type="submit"
-                onClick={this.handleSubmit.bind(this)}
-              />
-            </form>
-          </div>
-
           <div className="cart">
             <div className="cart-info">
               <table>

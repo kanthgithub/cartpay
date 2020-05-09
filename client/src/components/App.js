@@ -21,7 +21,6 @@ class App extends Component {
       cart: [],
       totalItems: 0,
       totalAmount: 0,
-      term: "",
       category: "",
       cartBounce: false,
       quantity: 1,
@@ -34,8 +33,6 @@ class App extends Component {
         clientSecret: ''
       },
     };
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleMobileSearch = this.handleMobileSearch.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
     this.sumTotalItems = this.sumTotalItems.bind(this);
@@ -61,14 +58,6 @@ class App extends Component {
     this.getProducts();
   }
 
-  // Search by Keyword
-  handleSearch(event) {
-    this.setState({ term: event.target.value });
-  }
-  // Mobile Search Reset
-  handleMobileSearch() {
-    this.setState({ term: "" });
-  }
   // Filter by Category
   handleCategory(event) {
     this.setState({ category: event.target.value });
@@ -207,8 +196,6 @@ class App extends Component {
               totalItems={this.state.totalItems}
               cartItems={this.state.cart}
               removeProduct={this.handleRemoveProduct}
-              handleSearch={this.handleSearch}
-              handleMobileSearch={this.handleMobileSearch}
               handleCategory={this.handleCategory}
               categoryTerm={this.state.category}
               updateQuantity={this.updateQuantity}
@@ -217,7 +204,6 @@ class App extends Component {
             />
             <Products
               productsList={this.state.products}
-              searchTerm={this.state.term}
               addToCart={this.handleAddToCart}
               productQuantity={this.state.quantity}
               updateQuantity={this.updateQuantity}

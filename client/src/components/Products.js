@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Product";
 import LoadingProducts from "../loaders/Products";
-import NoResults from "../empty-states/NoResults";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
 class Products extends Component {
@@ -10,16 +9,9 @@ class Products extends Component {
   }
   render() {
     let productsData;
-    let term = this.props.searchTerm;
     let x;
 
-    function searchingFor(term) {
-      return function(x) {
-        return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
-      };
-    }
     productsData = this.props.productsList
-      .filter(searchingFor(term))
       .map(product => {
         return (
           <Product
@@ -38,11 +30,9 @@ class Products extends Component {
 
     // Empty and Loading States
     let view;
-    if (productsData.length <= 0 && !term) {
+    if (productsData.length <= 0) {
       view = <LoadingProducts />;
-    } else if (productsData.length <= 0 && term) {
-      view = <NoResults />;
-    } else {
+    }  else {
       view = (
         <CSSTransitionGroup
           transitionName="fadeIn"
