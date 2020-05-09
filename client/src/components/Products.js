@@ -9,7 +9,6 @@ class Products extends Component {
   }
   render() {
     let productsData;
-    let x;
 
     productsData = this.props.productsList
       .map(product => {
