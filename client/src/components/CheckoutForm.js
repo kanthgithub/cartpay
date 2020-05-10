@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import "./CheckoutForm.css";
+import "./Store.css";
 // import api from "../api";
 
 export default function CheckoutForm(props) {
@@ -64,12 +65,18 @@ export default function CheckoutForm(props) {
     }
   };
 
-  const renderSuccess = () => {
+  const renderSuccess = (metadata) => {
     return (
       <div className="sr-field-success message">
-        <h1>Payment Confirmed - Your package is on your way Home</h1>
-        <p>View PaymentIntent response:</p>
         <pre className="sr-callout">
+          <div class="status success">
+            <h1>Thanks for your order!</h1>
+            <h1>Payment Confirmed - Your package is on your way Home</h1>
+            <p>Woot! You successfully made a payment with Stripe.</p>
+            <p class="note">We just sent your receipt to your email address, 
+                and your items will be on their way shortly. </p>
+
+            </div>
           <code>{JSON.stringify(metadata, null, 2)}</code>
         </pre>
       </div>
@@ -141,7 +148,7 @@ export default function CheckoutForm(props) {
     <div className="checkout-form">
       <div className="sr-payment-form">
         <div className="sr-form-row" />
-        {succeeded ? renderSuccess() : renderForm()}
+        {succeeded ? renderSuccess(metadata) : renderForm()}
       </div>
     </div>
   );
