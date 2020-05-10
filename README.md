@@ -33,7 +33,7 @@
 
 ## Screenshots of UI:
 
-
+[CartPay - User Experience and Flow](./CartPayUserExperience.md)
 
 ## How to Run:
 
