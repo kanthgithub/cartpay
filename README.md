@@ -20,10 +20,16 @@
 
 ## Tech Stack:
 
+ - Backend: 
+    1. nodeJS
+    2. expressJS
+
+ - Client/Frontend:
+    1. ReactJS   
 
 ## Payment Integration Solution Details:
 
-
+[PaymentIntegration Solution Details](../PaymentIntegrationSolution.md)
 
 ## Screenshots of UI:
 
@@ -31,6 +37,7 @@
 
 ## How to Run:
 
+[How to Run](../HowToRun.md)
 
 
 
