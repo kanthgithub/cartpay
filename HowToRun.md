@@ -74,7 +74,7 @@
 
     -  After Successful execution of 3 sub-steps mentioned above, check your console
 
-        - Console should show message that server side is running on port 4244
+        - Console should show message that server side is running on port 8015
         - Sample log:
             ```js
                 lakshmikanth-MacBook-Pro:client lakshmikanth$ npm start
